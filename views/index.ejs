@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>오늘은사고말거야</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/reset.css">
 	<link rel="stylesheet" href="/css/font.css">
@@ -15,24 +15,28 @@
 
 <div class="page">
 	<div class="text-left">
-		시작버튼 활성화시 10초마다 크롤링 결과를 출력합니다.
+		시작버튼 활성화시 10초마다 갱신 결과가 출력 됩니다.
 	</div>
-	<div class="btn-group mt-3">
-		<button class="btn-primary width-100" onclick="startCrawling();">시작</button>
-		<button class="btn-danger width-100" onclick="endCrawling();">종료</button>
-		<span class="timer ml-3 pt-1">
+	<div class="text-left mt-2">
+		서버상태 : <span class="text-primary text-server">확인중...</span>
+	</div>
+	<span class="timer mt-3">
 			<span id="time-hour">00</span>:<span id="time-min">00</span>:<span id="time-sec">00</span>
 		</span>
+	<div class="btn-group mt-2">
+		<button class="btn btn-secondary width-100" onclick="moveNaver();">로그인</button>
+		<button class="btn btn-primary width-100" onclick="startCrawling();">시작</button>
+		<button class="btn btn-danger width-100" onclick="endCrawling();">종료</button>
+
 	</div>
 
-	<contents class="mask-list mt-3" id="mask-list"></contents>
-
 	<contents class="mask-list mt-3">
-		<h1 class="mb-3">🔥 마스크 크롤링 결과</h1>
+		<h1 class="mb-3">🔥 판매중인 리스트</h1>
 		<div class="mask-result">
 			<div class="align-center">시작 => 스타트</div>
 		</div>
 	</contents>
+	<contents class="mask-list mt-3" id="mask-list"></contents>
 
 </div>
 

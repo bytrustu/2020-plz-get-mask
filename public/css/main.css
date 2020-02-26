@@ -115,11 +115,36 @@ body {
 .mask-list ul {
   display: flex;
   flex-direction: column;
+}
 
+.mask-list ul li {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .mask-list ul li + li {
   margin-top: 10px;
+}
+
+.mask-list ul li > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mask-list ul li > span:nth-child(1) {
+  flex: 0 0 auto;
+}
+
+.mask-list ul li > span:nth-child(2) {
+  flex: 1 0 auto;
+  width: 50%;
+  max-width: 600px;
+}
+
+.mask-list ul li > span:nth-child(3) {
+  width: calc( 50% - 30px );
 }
 
 .mask-list ul li span + span {
@@ -144,7 +169,34 @@ body {
   font-size: 16px;
 }
 
-.btn-group .timer {
-  font-size: 18px;
+.timer span {
+  font-size: 25px;
   font-weight: 600;
+}
+
+.btn {
+  height: 50px;
+  width: 25%;
+}
+
+
+@media(min-width:900px) {
+  .page {
+    padding: 5rem;
+  }
+
+  .mask-list ul li > span:nth-child(2) {
+    flex: 1 0 auto;
+    width: 70%;
+    max-width: 600px;
+  }
+
+  .mask-list ul li > span:nth-child(3) {
+    width: calc( 30% - 30px );
+  }
+
+  .btn {
+    height: auto;
+    max-width: 100px;
+  }
 }

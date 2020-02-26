@@ -40,10 +40,12 @@ app.all("*", function(req, res, next){
 	next();
 });
 
+setInterval(restful.workingCrawling, 3000);
 
 app.get('/', routes.index)
 app.get('/restful/plz_get_mask', restful.plz_get_mask);
 app.get('/restful/get_mask_list', restful.get_mask_list);
+app.get('/restful/server_status', restful.serverStatus);
 
 http.createServer(app).listen(app.get('port'), '0.0.0.0', function(){
 	console.log("Http server listening on port " + app.get('port'));
