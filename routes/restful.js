@@ -137,7 +137,6 @@ module.exports.serverStatus = (req, res) => {
 module.exports.workingCrawling = () => {
 	getServerStatus((server) => {
 		if (server.power == 1) {
-
 			getMaskList(urls => {
 
 				const getHtml = async (url) => {
