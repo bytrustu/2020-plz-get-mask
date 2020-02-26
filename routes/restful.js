@@ -8,6 +8,57 @@ function send(res, code, data) {
 	res.send(data);
 }
 
+const getTestList = _ => {
+	const urls = [
+		{
+			name : '주전자',
+			url : 'https://smartstore.naver.com/domokor/products/4021662508',
+			etc : 'naver-store'
+		},
+		{
+			name : '신발',
+			url : 'https://shopping.naver.com/outlet/stores/100564320/products/4799328086',
+			etc : 'naver-store'
+		},
+		{
+			name : '신발일까',
+			url : 'https://shopping.naver.com/outlet/stores/1000020909/products/4781366378',
+			etc : 'naver-store'
+		},
+		{
+			name : '상공양행 KF94 나인포 게릴라',
+			url : 'https://smartstore.naver.com/sangkong/products/4762917002',
+			etc : 'naver-store'
+		},
+		{
+			name : '아에르 KF94 스탠다드 베이직',
+			url : 'https://smartstore.naver.com/aer-shop/products/4722827602',
+			etc : 'naver-store'
+		},
+		{
+			name : '국대 KF94 미세먼지',
+			url : 'https://smartstore.naver.com/korea-mask/products/4825762296',
+			etc : 'naver-store'
+		},
+		{
+			name : '닥터퓨리 KF94 미세먼지',
+			url : 'https://smartstore.naver.com/mfbshop/products/4072573492',
+			etc : 'naver-store'
+		},
+		{
+			name : '에티카 KF94 미세먼지',
+			url : 'https://smartstore.naver.com/etiqa/products/4817982860',
+			etc : 'naver-store'
+		},
+		{
+			name : '네퓨어 KF94 미세먼지 끈길이조절',
+			url : 'https://smartstore.naver.com/gonggami/products/4705579501',
+			etc : 'naver-store'
+		}
+	];
+	return urls;
+}
+
 const getMaskList = callback => {
 	// const urls = [
 	// 	{
@@ -64,10 +115,9 @@ const getMaskList = callback => {
 };
 
 module.exports.initMaskList = () => {
-	getMaskList(urls => {
-		db_.initMaskUrl(urls, data => {
-		});
-	})
+	const urls = getTestList();
+	db_.initMaskUrl(urls, data => {
+	});
 };
 
 
