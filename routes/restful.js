@@ -64,7 +64,7 @@ const getMaskList = callback => {
 };
 
 module.exports.initMaskList = () => {
-	getMaskUrl(urls => {
+	getMaskList(urls => {
 		db_.initMaskUrl(urls, data => {
 		});
 	})
