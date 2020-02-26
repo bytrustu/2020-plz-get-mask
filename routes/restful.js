@@ -11,21 +11,6 @@ function send(res, code, data) {
 const getTestList = _ => {
 	const urls = [
 		{
-			name : '주전자',
-			url : 'https://smartstore.naver.com/domokor/products/4021662508',
-			etc : 'naver-store'
-		},
-		{
-			name : '신발',
-			url : 'https://shopping.naver.com/outlet/stores/100564320/products/4799328086',
-			etc : 'naver-store'
-		},
-		{
-			name : '신발일까',
-			url : 'https://shopping.naver.com/outlet/stores/1000020909/products/4781366378',
-			etc : 'naver-store'
-		},
-		{
 			name : '상공양행 KF94 나인포 게릴라',
 			url : 'https://smartstore.naver.com/sangkong/products/4762917002',
 			etc : 'naver-store'
