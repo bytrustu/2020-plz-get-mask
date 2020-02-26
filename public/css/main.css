@@ -188,7 +188,7 @@ body {
   .mask-list ul li > span:nth-child(2) {
     flex: 1 0 auto;
     width: 70%;
-    max-width: 600px;
+    max-width: 500px;
   }
 
   .mask-list ul li > span:nth-child(3) {
