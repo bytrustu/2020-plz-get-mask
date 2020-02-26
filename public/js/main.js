@@ -38,7 +38,7 @@ let timerInterval;
 const startCrawling = _ => {
   let i = 0;
   getCrawlingList();
-  startInterval = setInterval(()=>{getCrawlingList(); console.log(i++)}, 3000);
+  startInterval = setInterval(()=>{getCrawlingList(); console.log(i++)}, 10000);
   onTimer();
 }
 
