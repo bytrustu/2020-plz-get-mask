@@ -25,6 +25,7 @@ const getCrawlingList = _ => {
     if (data.state == false) {
       resultEl.html(`<div class="align-center">😂 판매중인 마스크가 없습니다.</div>`)
     } else {
+      resultEl.html(`<div class="align-center">프로세스 준비중입니다.</div>`)
       const code = maskArr.map((v, i) =>`<li>
                                                 <span class="badge badge-primary">${i+1}</span><span><a href="${v.url}" target="_blank">${v.url}</a></span><span>${v.name}</span>
                                               </li>`)
