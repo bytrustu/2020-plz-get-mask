@@ -160,7 +160,9 @@ module.exports.workingCrawling = () => {
 					Promise.all(data).then(v => {
 						let items = v.filter(v => v);
 						if (items.length == 0) {
-							return;
+							db_.deleteMaskList(data => {
+								return;
+							});
 						}
 						db_.updateMaskList(items, data => {
 						});

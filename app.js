@@ -41,7 +41,7 @@ app.all("*", function(req, res, next){
 });
 
 //restful.initMaskList();
-setInterval(restful.workingCrawling, 3000);
+setInterval(restful.workingCrawling, 10000);
 
 app.get('/', routes.index)
 app.get('/restful/plz_get_mask', restful.plz_get_mask);

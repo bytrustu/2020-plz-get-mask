@@ -59,6 +59,36 @@ module.exports.getNonCallUserList = (callback) => {
     });
 };
 
+module.exports.deleteMaskList = (callback) => {
+    db_pool.getConnection(function(err, db) {
+        try {
+            if (err) {
+                callback(false);
+            } else {
+                db.beginTransaction(function (err) {
+                    if (err) {
+                        db.rollback();
+                        callback(false);
+                    } else {
+                        const query = `delete * from masklist;`;
+                        const query_list = [];
+                        db.query(query, query_list, function (err, data) {
+                            if (err) {
+                                callback(false);
+                            } else {
+                                callback(true);
+                            }
+                        });
+
+                    }
+                });
+            }
+        } catch(e){}finally{
+            db.release();
+        }
+    });
+};
+
 module.exports.updateMaskList = (info, callback) => {
     db_pool.getConnection(function(err, db) {
         try {
