@@ -127,13 +127,11 @@ module.exports.updateMaskList = (info, callback) => {
 
 module.exports.initMaskUrl = (info, callback) => {
     db_pool.getConnection(function(err, db) {
-        console.log(`>>>>1`, err)
         try {
             if (err) {
                 callback(false);
             } else {
                 db.beginTransaction(function (err) {
-                    console.log(`>>>>2`, err)
                     if (err) {
                         db.rollback();
                         callback(false);
@@ -145,7 +143,6 @@ module.exports.initMaskUrl = (info, callback) => {
                                     const query_list = [];
                                     db.query(query, query_list, function (err) {
                                         if (err) {
-                                            console.log(`>>>>3`, err)
                                             db.rollback();
                                             callback(false);
                                         } else {
@@ -160,7 +157,6 @@ module.exports.initMaskUrl = (info, callback) => {
                                             const query_list = [name, url, etc];
                                             db.query(query, query_list, (err, result) => {
                                                 if (err) {
-                                                    console.log(`>>>>4`, err)
                                                     db.rollback();
                                                     callback(false);
                                                 } else {

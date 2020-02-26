@@ -40,7 +40,7 @@ app.all("*", function(req, res, next){
 	next();
 });
 
-restful.initMaskList();
+//restful.initMaskList();
 setInterval(restful.workingCrawling, 3000);
 
 app.get('/', routes.index)
