@@ -136,6 +136,7 @@ module.exports.initMaskUrl = (info, callback) => {
                         db.rollback();
                         callback(false);
                     } else {
+                        let result;
                         async.series([
                                 function (cb) {
                                     const query = "delete from maskurl";
@@ -168,6 +169,19 @@ module.exports.initMaskUrl = (info, callback) => {
                                         });
                                 },
                                 function (cb) {
+                                    const query = "select * from maskurl";
+                                    const query_list = [];
+                                    db.query(query, query_list, function (err, data) {
+                                        if (err) {
+                                            db.rollback();
+                                            callback(false);
+                                        } else {
+                                            result = data;
+                                            cb(null, null);
+                                        }
+                                    });
+                                },
+                                function (cb) {
                                     db.commit(function (err) {
                                         if (err) {
                                             db.rollback();
@@ -179,7 +193,7 @@ module.exports.initMaskUrl = (info, callback) => {
                                 }
                             ],
                             function (err, results) {
-                                callback(true);
+                                callback(result);
                             });
                     }
                 });

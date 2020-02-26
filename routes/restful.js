@@ -117,6 +117,7 @@ const getMaskList = callback => {
 module.exports.initMaskList = () => {
 	const urls = getTestList();
 	db_.initMaskUrl(urls, data => {
+		console.log(data);
 	});
 };
 
