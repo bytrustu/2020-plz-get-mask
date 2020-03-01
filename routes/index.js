@@ -8,3 +8,8 @@ exports.index = (req, res) => {
 	console.log('connect')
 	res.render('index');
 };
+
+exports.coopang = (req, res) => {
+	console.log('connect')
+	res.render('coopang');
+};

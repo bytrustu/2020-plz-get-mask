@@ -197,3 +197,32 @@ module.exports.get_mask_list = async (req, res) => {
 		send(res, 200, urls);
 	})
 };
+
+
+module.exports.get_coopang_list = async (req, res) => {
+	const getHtml = async (url) => {
+		try {
+			return await axios.get(url);
+		} catch (error) {
+		}
+	};
+	const url = `https://www.coupang.com/np/search?q=kf94+%EB%A7%88%EC%8A%A4%ED%81%AC+%EB%8C%80%ED%98%95&channel=user&component=&eventCategory=SRP&trcid=&traid=&sorter=scoreDesc&minPrice=&maxPrice=&priceRange=&filterType=rocket,&listSize=36&filter=&isPriceRange=false&brand=&offerCondition=&rating=0&page=1&rocketAll=false&searchIndexingToken=&backgroundColor=`;
+	getHtml(url).then(html => {
+		try {
+			const $ = cheerio.load(html.data);
+			const itemEl = $('.search-product');
+			const itemArr = [];
+			itemEl.each(function(i, elem) {
+				const thisEl = $(this);
+				const isSoldOut = thisEl.find('.out-of-stock').length;
+				if (isSoldOut === 0) {
+					const url =  `https://www.coupang.com`+ thisEl.find('.search-product-link').attr('href');
+					itemArr.push(url);
+				}
+			});
+			send(res, 200, itemArr);
+		} catch (e) {
+			send(res, 404, false);
+		}
+	})
+};

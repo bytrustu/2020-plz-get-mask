@@ -76,6 +76,10 @@ const moveNaver = _ => {
   window.open('https://nid.naver.com/nidlogin.login');
 };
 
+const moveCoopang = _ => {
+  window.open(`https://login.coupang.com/login/login.pang`);
+};
+
 $(document).ready(function(){
   maskList();
   getServerStatus().then(server => {
