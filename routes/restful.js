@@ -137,9 +137,9 @@ module.exports.workingCrawling = () => {
 						return getHtml(url).then(html => {
 							try {
 								const $ = cheerio.load(html.data);
-								const payEl = $('.not_goods > p > em');
+								const payEl = $('.not_goods > p');
 								const payText = payEl.text();
-								if (payText === '구매하실 수 없는') {
+								if (payText.indexOf('없는') == -1 || payText.indexOf('어렵') == -1) {
 									return;
 									// return {state: 'false', ...info};
 								} else {
