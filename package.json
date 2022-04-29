@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.0",
+    "async": "^2.6.4",
     "connect-redis": "^3.3.3",
     "dns": "^0.2.2",
     "ejs": "*",
